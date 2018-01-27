@@ -45,6 +45,7 @@ public class MonsterHidingPointStorage : MonoBehaviour {
         }
 
         // if for some reason your point has no registered connected points. just return a random point so game doesn't break
+        print(neareastPoint.name + " has no connected nodes, make sure to hook them up in the scene, Monster went to a random point");
         return HidingPoints[Random.Range(0, HidingPoints.Length)];
     }
 
@@ -66,6 +67,7 @@ public class MonsterHidingPointStorage : MonoBehaviour {
         }
 
         // if for some reason your point has no registered connected points. just return a random point so game doesn't break
+        print(neareastPoint.name + " has no connected nodes, make sure to hook them up in the scene, Monster went to a random point");
         return HidingPoints[Random.Range(0, HidingPoints.Length)];
     }
 }

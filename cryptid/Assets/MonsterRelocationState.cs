@@ -32,7 +32,6 @@ public class MonsterRelocationState : IMonsterState
         {
             monsterController.SwitchState(new MonsterIdleState(monsterController));
         }
-
     }
 
     void IMonsterState.End()

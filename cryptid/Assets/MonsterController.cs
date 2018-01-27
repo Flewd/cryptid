@@ -21,17 +21,6 @@ public class MonsterController : MonoBehaviour {
 	void Update () {
         CurrentState.Update();
 
-        // debug input
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            print("P Pressed");
-            DoScare();
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            print("O Pressed");
-            DoLove();
-        }
     }
 
     public void SwitchState(IMonsterState newState)
@@ -39,28 +28,5 @@ public class MonsterController : MonoBehaviour {
         CurrentState.End();
         CurrentState = newState;
         CurrentState.Start();
-    }
-
-    public void DoScare()
-    {
-
-        MonsterIdleState idleState = CurrentState as MonsterIdleState;
-
-        if (idleState != null)
-        {
-            print("Current state does equal IDLE");
-            SwitchState(new MonsterRelocationState(this, false));
-        }
-    }
-
-    public void DoLove()
-    {
-        MonsterIdleState idleState = CurrentState as MonsterIdleState;
-
-        if (idleState != null)
-        {
-            print("Current state does equal IDLE");
-            SwitchState(new MonsterRelocationState(this, true));
-        }
     }
 }
