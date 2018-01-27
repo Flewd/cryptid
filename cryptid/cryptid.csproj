@@ -229,6 +229,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CameraController.cs" />
+    <Compile Include="Assets\HidingPoint.cs" />
+    <Compile Include="Assets\IMonsterState.cs" />
+    <Compile Include="Assets\MonsterController.cs" />
+    <Compile Include="Assets\MonsterHidingPointStorage.cs" />
+    <Compile Include="Assets\MonsterIdleState.cs" />
+    <Compile Include="Assets\MonsterRelocationState.cs" />
     <Compile Include="Assets\PlayerController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
