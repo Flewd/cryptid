@@ -23,10 +23,13 @@ public class MonsterIdleState : IMonsterState
 
     void IMonsterState.Update()
     {
-        float angle = 45;
+        float angle = 40; // should be a little less than field of view
         if (Vector3.Angle(player.transform.forward, monsterController.transform.position - player.transform.position) < angle)
         {
-            Debug.Log("STOP LOOKING AT ME!");
+            if (currentState != ScareState.awaitingDialog)
+            {
+                monsterController.StartCoroutine(waitThenExecuteReaction());
+            }
         }
 
         // debug inputs should be replaced by microphone detection
@@ -38,6 +41,12 @@ public class MonsterIdleState : IMonsterState
         {
             DoLove();
         }
+    }
+
+    IEnumerator waitThenExecuteReaction()
+    {
+        yield return new WaitForSeconds(2);
+        ExecuteReaction();
     }
 
     void IMonsterState.End()
