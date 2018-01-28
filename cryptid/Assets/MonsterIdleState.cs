@@ -39,11 +39,11 @@ public class MonsterIdleState : IMonsterState
         // debug inputs should be replaced by microphone detection
         if (Input.GetKeyDown(KeyCode.P))
         {
-            DoScare();
+            this.monsterController.DoScare();
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            DoLove();
+            this.monsterController.DoLove();
         }
 
         monsterController.CheckDistanceToPlayer();
@@ -59,12 +59,12 @@ public class MonsterIdleState : IMonsterState
     {
     }
 
-    public void DoScare()
+    void IMonsterState.DoScare()
     {
         currentState = ScareState.scared;
     }
 
-    public void DoLove()
+    void IMonsterState.DoLove()
     {
         currentState = ScareState.loved;
     }
