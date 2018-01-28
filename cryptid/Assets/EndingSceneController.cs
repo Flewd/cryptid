@@ -7,10 +7,7 @@ using UnityEngine.SceneManagement;
 public class EndingSceneController : MonoBehaviour {
 
     [SerializeField]
-    Sprite[] images;
-
-    [SerializeField]
-    Image ImageFrame;
+    Image[] images;
 
     int indexOfImage = 0;
 
@@ -32,7 +29,7 @@ public class EndingSceneController : MonoBehaviour {
         }
         else
         {
-            ImageFrame.sprite = images[indexOfImage];
+            images[indexOfImage].gameObject.SetActive(true);
         }
         
 
