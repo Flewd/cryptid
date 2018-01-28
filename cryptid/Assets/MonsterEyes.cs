@@ -11,6 +11,8 @@ public class MonsterEyes : MonoBehaviour {
 
     Light[] eyeLights;
 
+    public enum EyeColors { yellow, red, green }
+
 	// Use this for initialization
 	void Start () {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -38,6 +40,24 @@ public class MonsterEyes : MonoBehaviour {
             {
                 eyeLights[i].intensity += 0.01f;
             }
+        }
+    }
+
+    public void ChangeEyeColor(EyeColors newEyeColor)
+    {
+        switch (newEyeColor)
+        {
+            case EyeColors.green: SetEyeColors(Color.green); break;
+            case EyeColors.red: SetEyeColors(Color.red); break;
+            case EyeColors.yellow: SetEyeColors(Color.yellow); break;
+        }
+    }
+
+    void SetEyeColors(Color newColor)
+    {
+        for (int i = 0; i < eyeLights.Length; i++)
+        {
+            eyeLights[i].color = newColor;
         }
     }
 }

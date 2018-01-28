@@ -13,14 +13,18 @@ public class MonsterChargeState : IMonsterState
 
     float previousDistance = 999999999999;
 
+    MonsterEyes monsterEyes;
+
     public MonsterChargeState(MonsterController _monsterController)
     {
         monsterController = _monsterController;
         player = GameObject.FindGameObjectWithTag("Player");
+        monsterEyes = monsterController.GetComponentInChildren<MonsterEyes>();
     }
 
     void IMonsterState.Start()
     {
+        monsterEyes.ChangeEyeColor(MonsterEyes.EyeColors.red);
         Vector3 heading = player.transform.position - monsterController.transform.position;
         float distance = heading.magnitude;
         directionToPlayer = heading / distance; 

@@ -11,14 +11,18 @@ public class MonsterIdleState : IMonsterState
 
     GameObject player;
 
+    MonsterEyes monsterEyes;
+
     public MonsterIdleState(MonsterController _monsterController)
     {
         monsterController = _monsterController;
         player = GameObject.FindGameObjectWithTag("Player");
+        monsterEyes = monsterController.GetComponentInChildren<MonsterEyes>();
     }
 
     void IMonsterState.Start()
     {
+        monsterEyes.ChangeEyeColor(MonsterEyes.EyeColors.yellow);
     }
 
     void IMonsterState.Update()
@@ -47,7 +51,7 @@ public class MonsterIdleState : IMonsterState
 
     IEnumerator waitThenExecuteReaction()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0);
         ExecuteReaction();
     }
 

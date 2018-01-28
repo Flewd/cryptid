@@ -15,34 +15,41 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody rigidbody;
 
+    [SerializeField]
+    GameObject monster;
+
 	// Use this for initialization
 	void Start () {
         rigidbody = GetComponent<Rigidbody>();
-
     }
 	
 	// Update is called once per frame
 	void Update () {
-
-        Vector3 dir = (this.transform.position - forwardPoint.transform.position).normalized;
-
-        if (Input.GetKey(KeyCode.W))
+        if (Constants.isEndGame == false)
         {
-            rigidbody.velocity = dir * -playerSpeed;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            rigidbody.velocity = dir * playerSpeed;
-        }
+            Vector3 dir = (this.transform.position - forwardPoint.transform.position).normalized;
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            gameObject.transform.eulerAngles = gameObject.transform.eulerAngles + new Vector3(0, -rotationSpeed, 0);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            gameObject.transform.eulerAngles = gameObject.transform.eulerAngles + new Vector3(0, rotationSpeed, 0);
-        }
+            if (Input.GetKey(KeyCode.W))
+            {
+                rigidbody.velocity = dir * -playerSpeed;
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                rigidbody.velocity = dir * playerSpeed;
+            }
 
+            if (Input.GetKey(KeyCode.A))
+            {
+                gameObject.transform.eulerAngles = gameObject.transform.eulerAngles + new Vector3(0, -rotationSpeed, 0);
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                gameObject.transform.eulerAngles = gameObject.transform.eulerAngles + new Vector3(0, rotationSpeed, 0);
+            }
+        }
+        else
+        {
+            gameObject.transform.LookAt(monster.transform);
+        }
     }
 }
