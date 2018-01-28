@@ -20,7 +20,9 @@ public class CameraController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+		// cursor locking functions 
+		Cursor.lockState = CursorLockMode.Locked; 
+		Cursor.visible = false; 
 	}
 
     void Update()
