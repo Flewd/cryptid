@@ -58,4 +58,12 @@ public class MonsterRelocationState : IMonsterState
     {
         monsterController.monsterNavAgent.Stop();
     }
+
+    void IMonsterState.DoScare()
+    {
+    }
+
+    void IMonsterState.DoLove()
+    {
+    }
 }

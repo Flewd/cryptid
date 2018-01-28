@@ -29,4 +29,12 @@ public class MonsterEndGameState : IMonsterState
     void IMonsterState.End()
     {
     }
+
+    void IMonsterState.DoScare()
+    {
+    }
+
+    void IMonsterState.DoLove()
+    {
+    }
 }

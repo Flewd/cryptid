@@ -49,4 +49,11 @@ public class MonsterChargeState : IMonsterState
         monsterController.transform.position = pos;
     }
 
+    void IMonsterState.DoScare()
+    {
+    }
+
+    void IMonsterState.DoLove()
+    {
+    }
 }

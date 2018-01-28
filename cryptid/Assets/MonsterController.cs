@@ -40,4 +40,14 @@ public class MonsterController : MonoBehaviour {
             SwitchState(new MonsterChargeState(this));
         }
     }
+
+    public void DoScare()
+    {
+        CurrentState.DoScare();
+    }
+
+    public void DoLove()
+    {
+        CurrentState.DoLove();
+    }
 }
