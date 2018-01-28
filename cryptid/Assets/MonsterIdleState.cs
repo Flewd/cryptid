@@ -41,6 +41,8 @@ public class MonsterIdleState : IMonsterState
         {
             DoLove();
         }
+
+        monsterController.CheckDistanceToPlayer();
     }
 
     IEnumerator waitThenExecuteReaction()

@@ -10,8 +10,11 @@ public class MonsterController : MonoBehaviour {
     [System.NonSerialized]
     public NavMeshAgent monsterNavAgent;
 
-	// Use this for initialization
-	void Start () {
+    GameObject player;
+
+    // Use this for initialization
+    void Start () {
+        player = GameObject.FindGameObjectWithTag("Player");
         monsterNavAgent = GetComponent<NavMeshAgent>();
         CurrentState = new MonsterRelocationState(this, true);
         CurrentState.Start();
@@ -20,7 +23,6 @@ public class MonsterController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         CurrentState.Update();
-
     }
 
     public void SwitchState(IMonsterState newState)
@@ -28,5 +30,14 @@ public class MonsterController : MonoBehaviour {
         CurrentState.End();
         CurrentState = newState;
         CurrentState.Start();
+    }
+
+    public void CheckDistanceToPlayer()
+    {
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        if (distance < 15)
+        {
+            SwitchState(new MonsterChargeState(this));
+        }
     }
 }

@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cryptid", "cryptid.csproj", "{F5575DEA-9CCB-A411-970C-89D697DF59F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cryptid.Editor", "cryptid.Editor.csproj", "{79FDD2BA-D2C1-627A-D412-D7A321DAC282}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{F5575DEA-9CCB-A411-970C-89D697DF59F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5575DEA-9CCB-A411-970C-89D697DF59F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5575DEA-9CCB-A411-970C-89D697DF59F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79FDD2BA-D2C1-627A-D412-D7A321DAC282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79FDD2BA-D2C1-627A-D412-D7A321DAC282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79FDD2BA-D2C1-627A-D412-D7A321DAC282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79FDD2BA-D2C1-627A-D412-D7A321DAC282}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

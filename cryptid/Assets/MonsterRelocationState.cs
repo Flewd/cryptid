@@ -8,6 +8,8 @@ public class MonsterRelocationState : IMonsterState
 
     bool willMoveForward = false;
 
+    HidingPoint currentDestination;
+
     public MonsterRelocationState(MonsterController _monsterController, bool moveForward )
     {
         monsterController = _monsterController;
@@ -18,12 +20,15 @@ public class MonsterRelocationState : IMonsterState
     {
         if (willMoveForward)
         {
-            monsterController.monsterNavAgent.destination = MonsterHidingPointStorage.GetNextPointTowardsCenter(monsterController.transform.position).transform.position;
+            currentDestination = MonsterHidingPointStorage.GetNextPointTowardsCenter(monsterController.transform.position);
+            monsterController.monsterNavAgent.destination = currentDestination.transform.position;
         }
         else
         {
-            monsterController.monsterNavAgent.destination = MonsterHidingPointStorage.GetNextPointAwayFromCenter(monsterController.transform.position).transform.position;
+            currentDestination = MonsterHidingPointStorage.GetNextPointTowardsCenter(monsterController.transform.position);
+            monsterController.monsterNavAgent.destination = currentDestination.transform.position;
         }
+        monsterController.monsterNavAgent.isStopped = false;
     }
 
     void IMonsterState.Update()
@@ -32,10 +37,14 @@ public class MonsterRelocationState : IMonsterState
         {
             monsterController.SwitchState(new MonsterIdleState(monsterController));
         }
+        if (currentDestination.name != "Final")
+        {
+            monsterController.CheckDistanceToPlayer();
+        }
     }
 
     void IMonsterState.End()
     {
-
+        monsterController.monsterNavAgent.Stop();
     }
 }
